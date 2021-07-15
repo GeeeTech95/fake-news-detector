@@ -17,15 +17,15 @@ class Verify(View) :
             
             #call predict script
             results = prediction.detect_fake_news(news)
-            
             #receive feedback
-            feedback['validity'] = results[0]
-            feedback['accuracy'] = results[1]
-            
+            print(results[1])
+            feedback['validity'] = str(results[0])
+            feedback['score'] = "{}%".format(round(results[1] * 100,2))
+            feedback['success'] = True
 
 
         else :
-            feedback['error'] = form.news.errors
+            feedback['error'] = "Information entered Failed Validation"
 
         return JsonResponse(feedback)    
 
