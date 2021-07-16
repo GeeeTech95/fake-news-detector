@@ -1,0 +1,172 @@
+
+Fake News Detection in Python
+
+In this project, we have used various natural language processing techniques and machine learning algorithms to 
+classify fake news articles using sci-kit libraries from python. 
+
+
+
+### Libraries and 
+Below are the libraries used in this project
+
+Backend Framework :
+
+django = "==3.0.5"
+
+Libraries :
+
+General  :
+Python 3.8(the python interpreter)
+pipenv = "==2020.11.15" (pip virtual environment)
+virtualenv = "==20.0.21"  (virtual environment)
+virtualenv-clone = "==0.5.4"
+
+
+Backend :
+wave = "==0.0.2"
+wrapt = "==1.11.2"
+whitenoise = "*"  (library for front end static files management)
+gunicorn = "*"  (production server for the web application)
+django-crispy-forms = "*"  (django form management library)
+
+
+Front End :
+Css
+Html
+Bootstrap (Core css library)
+Jquery ( Javascript Library)
+
+Learning Model :
+
+sympy = "==1.5.1"
+mpmath = "==1.1.0"
+numpy = "==1.18.4"  (matrix manipulation  python library,crutial to machine learning)
+filelock = "==3.0.12" (associaltive library)
+isort = "==4.3.21"  (associaltive library)
+lazy-object-proxy = "==1.4.3" (associaltive library)
+mccabe = "==0.6.1"
+scipy = "*"  (scientific calculations pythin library)
+scikit-learn = "*" (core machine learning and classification library)
+sklearn = "*"  (core machine learning and classification library)
+nltk = "*"  (core natural language processing library)
+seaborn = "*"
+pandas = "*" ()
+gensim = "*"
+
+
+  
+ Dataset used
+
+The data source used for this project is LIAR dataset which contains 3 files with .tsv format for test, train and validation. Below is some description about the data files used for this project.
+	
+LIAR: A BENCHMARK DATASET FOR FAKE NEWS DETECTION
+
+William Yang Wang, "Liar, Liar Pants on Fire": A New Benchmark Dataset for Fake News Detection, to appear in Proceedings of the 55th Annual Meeting of the Association for Computational Linguistics (ACL 2017), short paper, Vancouver, BC, Canada, July 30-August 4, ACL.
+
+the original dataset contained 13 variables/columns for train, test and validation sets as follows:
+
+* Column 1: the ID of the statement ([ID].json).
+* Column 2: the label. (Label class contains: True, Mostly-true, Half-true, Barely-true, FALSE, Pants-fire)
+* Column 3: the statement.
+* Column 4: the subject(s).
+* Column 5: the speaker.
+* Column 6: the speaker's job title.
+* Column 7: the state info.
+* Column 8: the party affiliation.
+* Column 9-13: the total credit history count, including the current statement.
+* 9: barely true counts.
+* 10: false counts.
+* 11: half true counts.
+* 12: mostly true counts.
+* 13: pants on fire counts.
+* Column 14: the context (venue / location of the speech or statement).
+
+To make things simple i  have chosen only 2 variables from this original dataset for this classification. The other variables can be added later to add some more complexity and enhance the features.
+
+Below are the columns used to create 3 datasets that have been in used in this project
+* Column 1: Statement (News headline or text).
+* Column 2: Label (Label class contains: True, False)
+ 
+You will see that newly created dataset has only 2 classes as compared to 6 from original classes. Below is method used for reducing the number of classes.
+
+* Original 	--	New
+* True	   	--	True
+* Mostly-true	-- 	True
+* Half-true	-- 	True
+* Barely-true	-- 	False
+* False		-- 	False
+
+
+The dataset used for this project were in csv format named train.csv, test.csv and valid.csv and can be found in repo. The original datasets are in "liar" folder in tsv format.
+<<i will add image flow here>>
+
+Model Folder file descriptions
+
+1.DataPrep.py
+This file contains all the pre processing functions needed to process all input documents and texts. 
+First we read the train, test and validation data files then performed some pre processing like tokenizing, stemming etc. 
+There are some exploratory data analysis is performed like response variable distribution and 
+data cleaning and  quality checks like null or missing values etc.
+
+2.FeatureSelection.py
+In this file we have performed feature extraction and selection methods from sci-kit learn python libraries. 
+For feature selection, we have used methods like simple bag-of-words and n-grams and then term frequency like tf-tdf weighting. 
+i have also used word2vec and POS tagging to extract the features, though POS tagging and word2vec has not been used at this point in the project.
+
+3.classifier.py
+Here we have build all the classifiers for predicting the fake news detection. 
+The extracted features are fed into different classifiers. We have used Naive-bayes, Logistic Regression, Linear SVM, Stochastic gradient descent and Random forest classifiers from sklearn. Each of the extracted features were used in all of the classifiers. Once fitting the model, we compared the f1 score and checked the confusion matrix. After fitting all the classifiers, 2 best performing models were selected as candidate models for fake news classification. We have performed parameter tuning by implementing GridSearchCV methods on these candidate models and chosen best performing parameters for these classifier. Finally selected model was used for fake news detection with the probability of truth. In Addition to this, We have also extracted the top 50 features from our term-frequency tfidf vectorizer to see what words are most and important in each of the classes. We have also used Precision-Recall and learning curves to see how training and test set performs when we increase the amount of data in our classifiers.
+
+prediction.py
+After training,the finally selected and best performing classifier was ```Logistic Regression``` 
+which was then saved on disk with name ```final_model.sav```. 
+this model  will be used by prediction.py file to classify the fake news. It takes an news article as input from user then model is used for final classification output that is shown to user along with probability of truth.
+
+
+'Core' Folder File Description :
+core is one of the apps for the backend project
+
+apps.py - configures the 'core app' to be recognized as a valid django app
+forms.py - contains the form(News Form) used in accepting information from front end API
+pages.py - contains the class based views for managing requests for static pages
+urls.py - contains the url mappings for request reposnse cycle
+views.py  - contains the class Based View for handling informations submitted via front end API
+
+
+
+
+
+
+### Performance
+Below is the learning curves for our candidate models. 
+n
+
+
+**Logistic Regression Classifier**
+
+
+<<>>
+
+
+**Random Forest Classifier**
+<<>>
+
+### Next steps
+As we can see that our best performing models had an f1 score in the range of 70's. This is due to less number of data that we have used for training purposes and simplicity of our models. For the future implementations, we could introduce some more feature selection methods such as POS tagging, word2vec and topic modeling. In addition, we could also increase the training data size. We will extend this project to implement these techniques in future to increase the accuracy and performance of our models.
+
+
+HOW IT WORKS 
+
+
+-When you visit the host link to the web site,https://fake-news-detector-proj.herokuapp.com/,
+-a form is presented for entering a piece of information which user wants to verify.
+-csrf token embeded in the form protects it from cross site request Forgery.
+-after a user enters a text,the form is submitted using an ajax post request to the url 'https://fake-news-detector-proj.herokuapp.com/verify/'
+-The core/urls.py routes the request based on the mappings, to Verify class in views.py folder
+-the request post data is passed into the form class fro forms.py for form validation.
+-If the form passes validation(form validation is necessary to protect the website from attacks),the information is extracted.
+-The extracted information is passed to the prediction function from model/prediction.
+-The function loads the 'final_model.sav' file and predicts.
+- A two value tuple is returned,The data validity(True/False) and the probability score(then converted to %)
+-these two values are returned as feedback varianble through a Json response back to the calling front end API.
+-A bootstrap  modal is used to display this result
