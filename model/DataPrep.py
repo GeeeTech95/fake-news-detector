@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Nov  4 12:00:49 2017
 
-@author: NishitP
-"""
 #import os
 import pandas as pd
 import csv
@@ -13,9 +8,6 @@ from nltk.stem import SnowballStemmer
 from nltk.stem.porter import PorterStemmer
 from nltk.tokenize import word_tokenize
 import seaborn as sb
-
-#before reading the files, setup the working directory to point to project repo
-#reading data files 
 
 
 test_filename = 'test.csv'
