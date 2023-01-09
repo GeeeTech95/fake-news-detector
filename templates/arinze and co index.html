@@ -16,9 +16,7 @@
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -72,7 +70,7 @@
           </li-->
           <li><a href="#about">About</a></li>
           <li><a href="#working">How it works</a></li>
-
+         
           <li><a href="#modules">Libraries</a></li>
           <li><a href="#team">Project Developers</a></li>
           <li><a href="#verify">Verify</a></li>
@@ -95,16 +93,15 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center"
-          data-aos="fade-up">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
           <div>
             <h1>Fake News Detection </h1>
-            <h2>A Fake news detection algorithm based on naive bayers classification algorithm, written in Python.</h2>
-            <a href="#verify" class="btn-get-started scrollto">verify an Information</a>
+            <h2>A Fake news detection algorithm based on naive bayers classification model,written in Python.</h2>
+            <a href="#verify" class="btn-get-started scrollto">verify  an Information</a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left">
-          <img src="{% static 'assets/img/hero2.png' %}" class="img-fluid" alt="">
+          <img src="{% static 'assets/img/hero-img.png' %}" class="img-fluid" alt="">
         </div>
       </div>
     </div>
@@ -119,15 +116,13 @@
 
         <div class="row">
           <div class="col-lg-6" data-aos="zoom-in">
-            <img src="{% static 'assets/img/fake-news3.jpg' %}" class="img-fluid" alt="">
+            <img src="{% static 'assets/img/about.jpg' %}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 d-flex flex-column justify-contents-center" data-aos="fade-left">
             <div class="content pt-4 pt-lg-0">
               <h3>About This project</h3>
               <p class="font-italic">
-                A Django Web based Fake news/information detection based on a supervised machine learning
-                algorithm,involving natural language processing and classification model based on naive bayes.Stages
-                involved inlude
+                A Django Web based Fake news/information detection based on a supervised machine learning algorithm,involving natural language processing and classification model based on naive bayes.Stages involved inlude
               </p>
               <ul>
                 <li><i class="icofont-check-circled"></i>data cleaning and Preparation of data set(LIAR Dataset)</li>
@@ -135,8 +130,7 @@
                 <li><i class="icofont-check-circled"></i>Input Information prediction based on saved model</li>
               </ul>
               <p>
-                Information input source is from the form located at the end of this page.accessible via this <a
-                  href="#verify">link</a>
+               Information input source is from the form located at the end of this page.accessible via this <a href="#verify">link</a>
               </p>
             </div>
           </div>
@@ -157,12 +151,11 @@
                   <h4>Information Input</h4>
                   <p>A form is presented for entering a piece of information which user wants to verify.
                     csrf token embeded in the form protects it from cross site request Forgery.
-                    after a user enters a text,the form is submitted using an ajax post request to the url
-                    'https://fake-news-detector-proj.herokuapp.com/verify/'</p>
+                    after a user enters a text,the form is submitted using an ajax post request to the url 'https://fake-news-detector-proj.herokuapp.com/verify/'</p>
                 </a>
               </li>
               <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="100">
-                <a class="nav-link" data-toggle="tab" href="#tab-2">
+                <a class="nav-link" data-toggle="tab" href="#tab-2"> 
                   <h4>Request Routing</h4>
                   <p>The core/urls.py routes the request based on the mappings, to Verify class in 'views.py' folder</p>
                 </a>
@@ -171,34 +164,45 @@
                 <a class="nav-link" data-toggle="tab" href="#tab-3">
                   <h4>Request Handling</h4>
                   <p>The request post data is passed into the form class for validation.
-                    If the form passes validation(form validation is necessary to protect the website from attacks),the
-                    information is extracted.
-                    The extracted information is passed to the prediction function from the 'model/prediction.py' file
-                  </p>
+                    If the form passes validation(form validation is necessary to protect the website from attacks),the information is extracted.
+                    The extracted information is passed to the prediction function from the 'model/prediction.py' file</p>
                 </a>
               </li>
               <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="300">
                 <a class="nav-link" data-toggle="tab" href="#tab-4">
                   <h4>Prediction</h4>
                   <p>The function loads the 'final_model.sav' file and predicts.
-                    A two value tuple is returned,The data validity(True/False) and the probability score(then converted
-                    to %)
-                    these two values are returned as feedback varianble through a Json response back to the calling
-                    front end API.</p>
+                     A two value tuple is returned,The data validity(True/False) and the probability score(then converted to %)
+                    these two values are returned as feedback varianble through a Json response back to the calling front end API.</p>
                 </a>
               </li>
             </ul>
           </div>
           <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in">
-            <center>
-              <figure>
-                <img src="{% static 'assets/img/algorithm.jpg' %}" alt="" class="img-fluid">
-              </figure>
-            </center>
+            <div class="tab-content">
+              <div class="tab-pane active show" id="tab-1">
+                <figure>
+                  <img src="{% static 'assets/img/features-1.png' %}" alt="" class="img-fluid">
+                </figure>
+              </div>
+              <div class="tab-pane" id="tab-2">
+                <figure>
+                  <img src="{% static 'assets/img/features-2.png' %}" alt="" class="img-fluid">
+                </figure>
+              </div>
+              <div class="tab-pane" id="tab-3">
+                <figure>
+                  <img src="{% static 'assets/img/features-3.png' %}" alt="" class="img-fluid">
+                </figure>
+              </div>
+              <div class="tab-pane" id="tab-4">
+                <figure>
+                  <img src="{% static 'assets/img/features-4.png' %}" alt="" class="img-fluid">
+                </figure>
+              </div>
+            </div>
           </div>
-
         </div>
-      </div>
 
       </div>
     </section><!-- End Features Section -->
@@ -211,82 +215,79 @@
           <h2>Libraries and Frameworks</h2>
           <p>This is a list of major libraries and framework used i this project</p>
         </div>
-
-        <div class="row">
+        
+        <div class="row" >
           <div class="col-12  col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in">
             <div class="icon-box icon-box-pink">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
               <h4 class="title"><a href="">General</a></h4>
               <p class="description">
-              <ol style="text-align: left;">
+                <ol style="text-align: left;">
 
-
-                <li>Python 3.8</li>
-                <li>pipenv</li>
-                <li>virtualenv </li>
-                <li> virtualenv-clone</li>
-
-
-              </ol>
+              
+              <li>Python 3.8</li>
+              <li>pipenv</li>
+              <li>virtualenv </li>
+              <li>  virtualenv-clone</li>
+            
+                  
+            </ol>
               </p>
             </div>
           </div>
 
-          <div class="col-12 col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-            data-aos-delay="100">
+          <div class="col-12 col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="100">
             <div class="icon-box icon-box-cyan">
               <div class="icon"><i class="bx bx-file"></i></div>
               <h4 class="title"><a href="">Front End</a></h4>
               <p class="description">
-              <ol style="text-align: left;">
+                <ol style="text-align: left;">
 
-
-                <li>Python 3.8</li>
-                <li>pipenv</li>
-                <li>virtualenv </li>
-                <li> virtualenv-clone</li>
-
-              </ol>
+              
+                  <li>Python 3.8</li>
+                  <li>pipenv</li>
+                  <li>virtualenv </li>
+                  <li>  virtualenv-clone</li>
+                      
+                </ol>
               </p>
             </div>
           </div>
 
-          <div class="col-12  col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-            data-aos-delay="200">
+          <div class="col-12  col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box icon-box-green">
               <div class="icon"><i class="bx bx-tachometer"></i></div>
               <h4 class="title"><a href="">Back End</a></h4>
               <p class="description">
-              <ol style="text-align: left;">
-
-                <li>Wave</li>
-                <li>Wrapt</li>
-                <li>Whitenoise</li>
-                <li>gunicorn </li>
-                <li> django-crispy-forms</li>
-
-              </ol>
+                <ol style="text-align: left;">
+    
+                  <li>Wave</li>
+                  <li>Wrapt</li>
+                  <li>Whitenoise</li>
+                  <li>gunicorn </li>
+                  <li> django-crispy-forms</li>
+                      
+                </ol>
               </p>
             </div>
           </div>
 
-          <div class="col-12  col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-            data-aos-delay="300">
+          <div class="col-12  col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box icon-box-blue">
               <div class="icon"><i class="bx bx-world"></i></div>
               <h4 class="title"><a href="">Learning Model</a></h4>
               <p class="description">
-              <ol style="text-align: left;">
-
-                <li> sympy </li>
-                <li>numpy </li>
-                <li>scipy</li>
-                <li>scikit-learn </li>
-                <li> sklearn</li>
-                <li> nltk</li>
-                <li> pandas</li>
-
-              </ol>
+                <ol style="text-align: left;">
+      
+                  <li> sympy </li>
+                  <li>numpy </li>
+                  <li>scipy</li>
+                  <li>scikit-learn </li>
+                  <li> sklearn</li>
+                  <li> nltk</li>
+                  <li> pandas</li>
+                      
+                </ol>
               </p>
             </div>
           </div>
@@ -296,11 +297,11 @@
       </div>
     </section><!-- End Services Section -->
 
+   
 
+  
 
-
-
-
+  
 
     <!-- ======= Team Section ======= -->
     <section id="team" class="team">
@@ -312,59 +313,70 @@
         </div>
 
         <div class="row">
-
+       
           <div class="col-lg-4 col-md-6">
             <div class="member" data-aos="zoom-in">
-              <div class="pic"><img src="{% static 'assets/img/george.jpeg' %}" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{% static 'assets/img/arinze.jpeg' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Obilor Macgeorge Sopuruchi</h4>
-                <span>Computer Science Dept. FUTO</span>
-
+                <h4>Arinze</h4>
+                <span>Electrical & Electronics Engr. Dept. FUTO</span>
+                <!--div class="social">
+                  <a href=""><i class="icofont-twitter"></i></a>
+                  <a href=""><i class="icofont-facebook"></i></a>
+                  <a href=""><i class="icofont-instagram"></i></a>
+                  <a href=""><i class="icofont-linkedin"></i></a>
+                </div-->
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="member" data-aos="zoom-in">
+              <div class="pic"><img src="{% static 'assets/img/williams.jpeg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Williams</h4>
+                <span>Electrical & Electronics Engr. Dept. FUTO</span>
+               
               </div>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6">
-
-          </div>
-
-          <div class="col-lg-4 col-md-6">
             <div class="member" data-aos="zoom-in">
-              <div class="pic"><img src="{% static 'assets/img/george-friend.jpeg' %}" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{% static 'assets/img/chinaza.jpeg' %}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Obinwanne Jude</h4>
-                <span>Computer Science Dept. FUTO</span>
+                <h4>Chinaza</h4>
+                <span>Electrical & Electronics Engr. Dept. FUTO</span>
 
               </div>
             </div>
           </div>
-
-
+   
+         
 
         </div>
 
       </div>
     </section><!-- End Team Section -->
 
-
+    
 
     <!-- ======= Contact Section ======= -->
     <section id="verify" class="contact section-bg">
       <div class="container">
-        <a>
-          <div class="section-title" data-aos="fade-up">
-            <h2>Verify an information</h2>
-          </div>
+         <a>
+        <div class="section-title" data-aos="fade-up">
+          <h2>Verify an information</h2>
+        </div>
+        
 
+        <div class="row">
 
-          <div class="row">
+         
 
-
-
-            <div id="form-div" class="col-lg-12 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-left">
-              <form id="information-form" action="{% url 'verify' %}" method="post" role="form" class="php-email-form">
-                {% csrf_token %}
-                <!--div class="form-row">
+          <div id="form-div" class="col-lg-12 mt-5 mt-lg-0 d-flex align-items-stretch" data-aos="fade-left">
+            <form id="information-form" action="{% url 'verify' %}" method="post" role="form" class="php-email-form">
+              {% csrf_token %}
+              <!--div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="name">Your Name</label>
                   <input type="text" name="name" class="form-control" id="name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -376,31 +388,30 @@
                   <div class="validate"></div>
                 </div>
               </div-->
-
-                <div class="form-group">
-                  <label for="name">Information</label>
-                  <textarea class="form-control" name="news" rows="10" data-rule="required"
-                    data-msg="Please write something for us"></textarea>
-                  <div class="validate"></div>
-                </div>
-                <div class="mb-3">
-                  <div id="loading-button" class="loading">Verifying .</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-                </div>
-                <div id="submit-button" class="text-center"><button type="submit">Verify</button></div>
-              </form>
-            </div>
-
+            
+              <div class="form-group">
+                <label for="name">Information</label>
+                <textarea class="form-control" name="news" rows="10" data-rule="required" data-msg="Please write something for us"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                <div id="loading-button" class="loading">Verifying .</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div id="submit-button" class="text-center"><button type="submit">Verify</button></div>
+            </form>
           </div>
+
+        </div>
 
       </div>
     </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
 
-  <!-- Vertically Center -->
-  <div class="modal fade" id="globalmodal" tabindex="-1" role="dialog">
+   <!-- Vertically Center -->
+   <div class="modal fade" id="globalmodal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -410,18 +421,12 @@
           </button>
         </div>
         <div class="pop-up-modal-body">
-          <p hidden id="error"
-            style="margin:20px 10px 20px 20px;font-size:18px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">
-          </p>
-          <p hidden id="validity"
-            style="margin:20px 10px 20px 20px;font-size:18px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">
-            Validity : <b></b></p>
-          <p hidden id="score"
-            style="margin:20px 10px 20px 20px;font-size:18px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">
-            Probability Score : <b></b></p>
-        </div>
-        <div id="modal-pop-up-footer" class="modal-footer bg-whitesmoke br">
-          <a href=""><button hidden type="button" id="yes-approve" class="btn btn-primary"></button></a>
+        <p hidden id="error" style="margin:20px 10px 20px 20px;font-size:18px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif"></p>
+        <p hidden id="validity" style="margin:20px 10px 20px 20px;font-size:18px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Validity : <b></b></p>
+        <p hidden id="score" style="margin:20px 10px 20px 20px;font-size:18px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Probability Score : <b></b></p>
+      </div>
+        <div  id="modal-pop-up-footer" class="modal-footer bg-whitesmoke br">
+            <a href=""><button hidden type="button" id="yes-approve" class="btn btn-primary"></button></a>
           <button hidden type="button" id="footer-button" class="btn btn-primary"></button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
@@ -433,11 +438,11 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="footer-top">
+  
 
+       
 
-
-
-      <!--div class="container">
+    <!--div class="container">
       
       <div class="credits">
         Designed by <a href="https://bootstrapmade.com/">Fiberswift</a>
@@ -449,61 +454,61 @@
 
   <!-- Vendor JS Files -->
   <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}""></script>
-  <script src=" {% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}""></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}""></script>
   <script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js' %}""></script>
  
-  <script src=" {% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}""></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}""></script>
   <script src="{% static 'assets/vendor/venobox/venobox.min.js' %}""></script>
-  <script src=" {% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}""></script>
+  <script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}""></script>
   <script src="{% static 'assets/vendor/aos/aos.js' %}""></script>
 
   <!-- Template Main JS File -->
-  <script src=" {% static 'assets/js/main.js' %}""></script>
+  <script src="{% static 'assets/js/main.js' %}""></script>
 
   <script>
-    $("#form-div").on('submit', '#information-form', function (event) {
-      event.preventDefault();
-
-      $("#submit-button button").html("Verifying ..")
-
-      var form = $(this);
-
-      $.ajax({
-        type: "POST",
-        url: form.attr('action'),
-        data: form.serialize(),
-        dataType: 'json',
-        success: function (data) {
-          if (data.success) {
-
+    $("#form-div").on('submit','#information-form',function(event){
+    event.preventDefault();
+    
+    $("#submit-button button").html("Verifying ..")
+  
+    var form  = $(this);
+    
+    $.ajax({
+        type:"POST",
+        url : form.attr('action'),
+        data : form.serialize(),
+        dataType : 'json',
+        success : function(data){
+         if(data.success){
+       
             $("#submit-button button").html('Complete !')
-
+           
             $("#pop-up-modal-title").html('<b>Prediction Complete !</b>')
             $(".pop-up-modal-body #validity").removeAttr('hidden')
             $(".pop-up-modal-body #score").removeAttr('hidden')
             $(".pop-up-modal-body #validity b").html(data.validity)
             $(".pop-up-modal-body #score b").html(data.score)
-            $(".pop-up-modal-body #error").attr('hidden', '')
+            $(".pop-up-modal-body #error").attr('hidden','')
             $("#globalmodal").modal("show");
             $("#submit-button button").html('Verify')
 
-          }
-
-          else if (data.error) {
-            $("#submit-button button").html('Complete !')
-            $("#pop-up-modal-title").html('<b>Error !</b>')
-            $(".pop-up-modal-body #error").html(data.error)
-            $(".pop-up-modal-body #error").removeAttr('hidden')
-            $(".pop-up-modal-body #validity").attr('hidden', '')
-            $(".pop-up-modal-body #score").attr('hidden', '')
-            $("#globalmodal").modal("show");
-            $("#submit-button button").html('Verify')
-
-          }
+         }
+    
+         else if(data.error){
+          $("#submit-button button").html('Complete !')
+           $("#pop-up-modal-title").html('<b>Error !</b>')
+           $(".pop-up-modal-body #error").html( data.error)
+           $(".pop-up-modal-body #error").removeAttr('hidden')
+           $(".pop-up-modal-body #validity").attr('hidden','')
+          $(".pop-up-modal-body #score").attr('hidden','')
+           $("#globalmodal").modal("show");
+           $("#submit-button button").html('Verify')
+   
+         }
         }
-      });
-      return false;
     });
+    return false;
+});
   </script>
 
 </body>
